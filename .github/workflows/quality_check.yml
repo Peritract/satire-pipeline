@@ -1,0 +1,24 @@
+# When do I run the action
+on:
+  push:
+    branches:
+     - "main"
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+# What should happen when I run it?
+jobs:
+  quality_check: # A single job
+    name: "Python Quality Check"
+    runs-on: ubuntu # A basic linux VM
+    steps: # What am I going to do on the VM?
+      - name: "Get the repository code"
+        uses: actions/checkout@v5
+      - name: "Install Python"
+        uses: actions/setup-python@v6
+      - name: "Install packages"
+        run: |
+          pip install -r requirements.txt
+      - name: "Lint"
+        run: pylint --fail-under=8 *.py
