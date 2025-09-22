@@ -11,7 +11,7 @@ on:
 jobs:
   quality_check: # A single job
     name: "Python Quality Check"
-    runs-on: ubuntu # A basic linux VM
+    runs-on: ubuntu-latest # A basic linux VM
     steps: # What am I going to do on the VM?
       - name: "Get the repository code"
         uses: actions/checkout@v5
