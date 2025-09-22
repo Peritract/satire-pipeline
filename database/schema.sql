@@ -1,0 +1,4 @@
+CREATE TABLE outlet (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    name TEXT UNIQUE
+)
